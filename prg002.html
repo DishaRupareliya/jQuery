@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-3.6.1.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+
+<p>hello world</p>
+<button id="1" class="btn btn-light">click me</button><br>
+<h1>how are you..?</h1>
+<button id="2" class="btn btn-light">click me</button><br>
+<button id="3" class="btn btn-light">click me</button>
+<h3>what are u doing..?</h3><br>
+<button id="4" type="submit" class="btn btn-light">submit</button>
+</form><br>
+<input id="5" type="text" name="name"><br>
+<button id="6">Start Animation</button><br>
+<div style="background:#98bf21;height:100px;width:100px;position:absolute;"></div><br><br><br><br>
+<button id="7">click me hide</button>
+
+
+
+<script>
+    //event mouseover
+    $(document).ready(function () {
+        $('#1').mouseover(function () {
+            $('p').hide();
+
+        });
+        $('#2').mouseout(function () {
+            $('h1').hide();
+
+        });
+        //enter the mouse hide end leave mouse show
+        $('#3').mouseenter(function () {
+            $('h3').hide();
+        });
+        $('#3').mouseleave(function () {
+            $('h3').show();
+        });
+        //submit the form to alert msg
+        $('form').submit(function (e) {
+           alert("hiii");
+
+        });
+        //blur and show
+        $( "#5" ).blur(function() {
+          $(this).css('background-color','#ffe6e6');
+        });
+        $("#5").focus(function(event) {
+           $(this).css('background-color','#ffe6cc');
+        });
+        
+       
+        // animation button
+        $("#6").click(function(){
+            $('div').animate({left: '250px'});
+        });
+        //hide pragraph to click
+        $("#7").click(function(){
+            $("p").hide("slow", function(){
+              alert("The paragraph is now hidden");
+          });
+        });
+
+
+    });
+</script>
+
+</body>
+</html>
