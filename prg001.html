@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="assets/js/jquery-3.6.1.js"></script>
+</head>
+<body>
+    <button class="class1">click me using class</button>
+    <button id="id1">click me using id </button>
+    <button>click me selectors</button>
+    <!-- class (.)
+    id (#)
+    selectors ("tag name") -->
+<script>
+    $(document).ready(function () {
+        //using the class
+        $('.class1').click(function (e) {
+            alert("button clicked");
+        });
+        //using the id
+        $('#id1').click(function (e) {
+            alert("button cliecked using id");
+
+        });
+        //using the selectors
+        $('button').click(function (e) {
+            alert("button clicked using selector");
+            $('button').html("<h1>hi</h1>");
+
+        });
+    });
+
+</script>
+</body>
+</html>

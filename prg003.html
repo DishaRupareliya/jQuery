@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <script type="text/javacript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-3.6.1.js"></script>
+    <style>
+        .intro{
+            color: green;
+            font-size:xx-large;
+        }
+        .panel ,.contant{
+            background-color: pink;
+            font-size: large;
+            text-align: center;
+            border: solid 1px black;
+        }
+        .contant{
+            padding: 20px;
+            display: none;
+        }
+
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn btn-primary" id="btn1">click me</button>** double Click events<br><br>
+    <button id="btn2" class="btn btn-secondary">addClass</button>** Add Class and Remove Class<br>
+    <p class="">addClass</p><br>
+    Name:<input type="text" name="name" autocomplete="off" id="input1"> ** Blur And Focus Event
+    <br><br>
+    <button class="btn btn-danger" id="btn3">click me</button> ** Mouseenter and Mouseuo Event
+    <p id="p1" style="font-size:xx-large;">Mouseenter & Mouseleave Event</p><br>
+    <button id="btn4" class="btn btn-info">Click</button> ** Mousedown and Mouseup Event
+    <p id="p2"></p><br>
+    Surname:<input type="text" name="surname" id="input2">** Keypress,Keyup and Keydown
+    <br><br>
+    <button id="btn5" class="btn btn-danger">Toggle</button> ** toggle Button
+    <p id="p3">Toggle Button</p>
+    <br>
+    <button id="btn6">fadeIn</button><br><br>
+    <div id="div1" style="background-color: pink; height: 60px; width:60px;"></div><br>
+    <button id="btn7">fadeOut</button><br><br>
+    <div id="div2" style="background-color: #ffe6e6; height: 60px; width:60px;"></div><br>
+    <button id="btn8">fadeTo</button><br><br>
+    <div id="div3" style="background-color: #ffe6cc; height: 60px; width:60px;"></div><br>
+    <button id="btn9">fadeToggle</button><br><br>
+    <div id="div4" style="background-color: gray; height: 60px; width:60px;"></div><br>
+    <br>
+    <h4>Slide</h4>
+    <div id="div5" class="panel">Click me!</div>
+    <div id="div6" class="contant">Hello World</div>
+    <br>
+    <br>
+    <h4>Animation</h4>
+    <button id="btn10">Animation</button><br><br>
+    <div id="div7" style="background-color:#98bf21;width:100px;height:100px;position:absolute;"></div>
+    <script>
+    $(document).ready(function() {
+        //double click events
+        $('#btn1').dblclick(function(e) {
+            $(this).html('<h1>Hello World</h1>');
+        });
+
+        //addClass & removeClass
+        $('#btn2').mouseover(function(e) {
+            $('p').addClass('intro');
+        });
+        $('#btn2').mouseout(function () {
+            $('p').removeClass('intro');
+        });
+
+        //blur & focus Event
+        $('#input1').focus(function(event) {
+            $(this).css('background-color', 'red');
+        });
+        $('#input1').blur(function(event) {
+            $(this).css('background-color', 'green');
+        });
+
+        //mouseenter & mouseleave
+        $('#btn3').mouseenter(function(){
+            $('#p1').hide();
+        });
+        $('#btn3').mouseleave(function(){
+            $('#p1').show();
+        });
+
+        //mousedown & mouseup
+        $('#btn4').mousedown(function(event) {
+            $('#p2').html("<h3>mousedown Event</h3>");
+        });
+        $('#btn4').mouseup(function(event) {
+            $('#p2').html("<h3>mouseup Event</h3>");
+        });
+
+        //keypress, Keydown & keyup
+        $('#input2').keypress(function(){
+            $(this).css('background-color','blue');
+        });
+        $('#input2').keyup(function(e) {
+            $(this).css('background-color','pink');
+        });
+        $('#input2').keydown(function(event) {
+            $(this).css('background-color','green');
+        });
+
+        //toggle button
+        $('#btn5').click(function() {
+            $('#p3').toggle(1000);
+        });
+
+        //fadeIn,fadeOut,fadeTo & fadeToggle
+        $('#btn6').click(function(){
+            $('#div1').fadeIn(1000);
+        });
+        $('#btn7').click(function(){
+            $('#div2').fadeOut(1000);
+        });
+        $('#btn8').click(function(){
+            $('#div3').fadeTo(1000);
+        });
+        $('#btn9').click(function(){
+            $('#div4').fadeToggle(1000);
+        });
+
+        //slideDown,slideUp & slideToggle
+        $('#div5').click(function(){
+            $('#div6').slideToggle("slow");
+        });
+
+        //Animation
+        $('#btn10').click(function(){
+            $("#div7").animate({
+                left: '250px',
+                opacity: '0.5',
+                height: '150px',
+                width: '150px'
+            });
+        });
+    });
+</script>
+</body>
+</html>
