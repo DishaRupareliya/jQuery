@@ -60,6 +60,9 @@
     <h4>Animation</h4>
     <button id="btn10">Animation</button><br><br>
     <div id="div7" style="background-color:#98bf21;width:100px;height:100px;position:absolute;"></div>
+    <br>
+    <br><br><br><br>
+    <p id="p4">Explicit Intration</p>
     <script>
     $(document).ready(function() {
         //double click events
@@ -143,6 +146,16 @@
                 width: '150px'
             });
         });
+
+        //Explicit interation
+        $('#p4').each(function(){
+            console.log($(this));
+            $(this).append('<<<');
+            $(this).prepend('>>>');
+        });
+
+        //implicit interation
+        $('#p4').append('before').prepend('after');
     });
 </script>
 </body>
