@@ -8,8 +8,22 @@
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery-3.6.1.js"></script>
     <title>Document</title>
+    <style> 
+        #panel, #flip {
+          padding: 5px;
+          text-align: center;
+          background-color: #e5eecc;
+          border: solid 1px #c3c3c3;
+      }
+
+      #panel {
+          padding: 50px;
+          display: none;
+      }
+    </style>
 </head>
 <body>
+    <div class="container">
     <form action="#">
 
 <p>hello world</p>
@@ -20,13 +34,31 @@
 <h3>what are u doing..?</h3><br>
 <button id="4" type="submit" class="btn btn-light">submit</button>
 </form><br>
-<input id="5" type="text" name="name"><br>
+<input id="5" type="text" name="name"><br><br>
 <button id="6">Start Animation</button><br>
-<div style="background:#98bf21;height:100px;width:100px;position:absolute;"></div><br><br><br><br>
+<div style="background:#98bf21;height:100px;width:100px;position:absolute;"></div><br><br><br><br><br>
 <button id="7">click me hide</button>
+<br><br>
+<div id="flip">Click to slide down panel</div>
+<div id="panel">Hello world!</div>
+<br>
+<div id="div1" style="height:100px;width:300px;border:1px solid black;background-color:#ffe6e6;">
+
+This is some text in the div.
+<p>This is a paragraph in the div.</p>
+<p>This is another paragraph in the div.</p>
+
+</div>
+<br>
+
+<button id="8">Empty the div element</button>
+<br><br>
+<p id="p1">jQuery is fun!!</p>
+
+<button id="9">Click me</button>
 
 
-
+</div>
 <script>
     //event mouseover
     $(document).ready(function () {
@@ -69,7 +101,18 @@
               alert("The paragraph is now hidden");
           });
         });
-
+        //slide panal
+        $("#flip").click(function(){
+            $("#panel").slideToggle("slow");
+          });
+        //empty div element
+        $("#8").click(function(){
+            $("#div1").empty();
+        });
+        //slide up and down
+        $("#9").click(function(){
+            $("#p1").css("color", "red").slideUp(2000).slideDown(2000);
+        });
 
     });
 </script>
