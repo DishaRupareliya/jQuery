@@ -1,0 +1,11 @@
+.center {
+  line-height: 40px;
+  height: auto;
+  text-align: center;
+}
+#user_details{
+  line-height: 40px;
+  height:auto;
+  text-align: center;
+  background-color: gray;
+}
