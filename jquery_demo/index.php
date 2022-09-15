@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
     <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/jquery-3.6.1.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 </head>
 <body>
     <div class="container pt-5">
@@ -34,7 +34,7 @@
                         <label for="password">Enter Password</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="submit" name="submit" value="submit" class="btn btn-primary">
+                        <input type="submit" name="submit" value="login" class="btn btn-primary">
                     </div>
                 </form>
             </div>
@@ -55,14 +55,21 @@
                     $('.alert').show();
                     if(res.success == true) {
                         $('#response').text('success');
+                        $('#alert_close').addClass('success');
                     } if(res.success == false) {
                         $('#response').text('error');
+                        $('#alert_close').removeClass('success');
                     }
                 });
             });
             $('#alert_close').on('click', function(event) {
                 event.preventDefault();
-                $(".alert").hide();
+                if($(this).hasClass('success')) {
+                    $('.alert').hide();
+                    window.location.replace("../jquery_validation");   
+                } else {
+                    $('.alert').hide();
+                }
             });
         });
     </script>
