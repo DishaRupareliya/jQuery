@@ -3,12 +3,12 @@
 	if(isset($_POST['submit'])){
 		unset($_POST['submit']);
 		$table='student_detail';
-		$data=$DB->insert($table,$_POST);
+		$DB->insert($table,$_POST);
 		$_POST=array();
-		header('location:navbar.php');
+		header('location:select_student_data.php');
 	}
 	$sql="SELECT * FROM city";
-	$data=$DB->query($sql);
+	$DB->query($sql);
 	$DB->execute($sql);
 	$result=$DB->fetchAll();
 ?>
@@ -46,6 +46,7 @@
 					<a href="#" class="nav-link navbar-brand" id="link3">Step 3</a>
 				</div>
 			</div>
+			<button class="btn border rounded-2 bg-dark text-light" id="btn1">Back</button>
 		</div>
 	</nav>
 	<div class="container-fluid p-5" id="div1">
@@ -93,6 +94,9 @@
 						$('#div6').hide();
 					});
 				});
+			});
+			$('#btn1').click(function(){
+				window.location.replace('select_student_data.php');
 			});
 		});
 	</script>

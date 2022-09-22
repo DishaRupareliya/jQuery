@@ -10,12 +10,13 @@
 <body>
 	<nav class="navbar navbar-expand-lg bg-light border">
 		<div class="container-fluid">
-			<a href="home.php" class="navbar-brand">Home</a>
+			<!-- <a href="home.php" class="navbar-brand">Home</a> -->
 			<div class="collapse navbar-collapse">
 				<div class="navbar-nav">
-					<a href="select_citydata.php" class="nav-link">View</a>
-					<a href="about_us.php" class="nav-link">About us</a>
-					<a href="contact_us.php" class="nav-link">Contact us</a>
+					<!-- <a href="citydata_insert.php" class="nav-link">City</a> -->
+					<a href="select_city_data.php" class="navbar-brand">City</a>
+					<a href="select_student_data.php" class="navbar-brand">Student</a>
+					<a href="select_subject_data.php" class="navbar-brand">Subject</a>
 				</div>
 			</div>
 		</div>

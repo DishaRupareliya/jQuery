@@ -1,12 +1,16 @@
 <?php 
 	require_once('connection.php');
-	$table='city';
 	if(isset($_POST['submit'])){
 		unset($_POST['submit']);
+		$table='subject';
 		$DB->insert($table,$_POST);
 		$_POST=array();
-		header('location:select_data.php');
+		header('location:select_subject_data.php');
 	}
+	$sql='SELECT * FROM student_detail';
+	$DB->query($sql);
+	$DB->execute($sql);
+	$result=$DB->fetchAll();
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,19 +22,28 @@
 	<script type="text/javascript" src="../assets/js/jquery-3.6.1.js"></script>
 	<title></title>
 </head>
-<body><?php require_once('navbar.php'); ?>
-	<div class="container">
+<body>
+	<?php require_once('navbar.php'); ?>
+	<div class="container" id="addcity">
 		<div class="row">
 			<div class="col-md-6"></div>
 			<div class="col-md-6 p-5">
-				<h2 class="text-center">City</h2>
+				<h2 class="text-center">Subject</h2>
 				<div class="border rounded-2 bg-light mb-3">
 					<div class="container p-5">
-						<form action="#" method="POST">
+						<form action="subject_data_insert.php" method="POST">
 							<div class="row mb-3">
 								<div class="col-md-12 col-6">
-									<label for="city" class="form-label">city</label>
-									<input type="text" name="city" id="city" class="form-control" autocomplete="off" required>
+									<label for="subject" class="form-label">subject</label>
+									<input type="text" name="subject" id="subject" class="form-control" autocomplete="off" required>
+								</div>
+								<div class="col-6 col-md-12 mb-3">
+									<label class="form-label">student</label>
+									<select class="form-control" name="student">
+										<?php foreach ($result as $results): ?>
+											<option value="<?= $results->id; ?>"><?php echo $results->name; ?></option>
+										<?php endforeach ?>
+									</select>
 								</div>
 							</div>
 							<div class="row mb-3">
@@ -48,12 +61,9 @@
 	<script>
 		$(document).ready(function(){
 			$('#btn1').click(function(){
-				window.location.replace("select_city_data.php");
+				window.location.replace('select_subject_data.php');
 			});
 		});
-		window.onload=function(){
-			history.replaceState("","","citydata_insert.php");
-		}
 	</script>
 </body>
 </html>
