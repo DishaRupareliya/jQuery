@@ -1,11 +1,27 @@
 <?php 
 	require_once('connection.php');
-	$table='city';
+	include('update.php');
+
 	if(isset($_POST['submit'])){
 		unset($_POST['submit']);
+		$table='city';
 		$DB->insert($table,$_POST);
 		$_POST=array();
-		header('location:select_data.php');
+		header('location:select_city_data.php');
+	}
+	
+	echo "<pre>";
+	print_r ($myrecords);
+	echo "</pre>";
+	if(isset($_POST['update'])){
+		unset($_POST['update']);
+		$table='city';
+		$where['id']=$_POST['hid'];
+		if(isset($_POST['hid'])){
+			unset($_POST['hid']);
+		}
+		$abc=$DB->update($table,$_POST,$where);
+		header('location:select_city_data.php');
 	}
 ?>
 <!DOCTYPE html>
@@ -30,12 +46,17 @@
 							<div class="row mb-3">
 								<div class="col-md-12 col-6">
 									<label for="city" class="form-label">city</label>
-									<input type="text" name="city" id="city" class="form-control" autocomplete="off" required>
+									<input type="text" name="city" id="city" class="form-control" autocomplete="off" required value="">
 								</div>
 							</div>
 							<div class="row mb-3">
 								<div class="col-md-6">
-									<input type="submit" name="submit" value="submit" class="btn btn-outline-primary">
+									<?php if(isset($_POST['id'])){ ?>
+										<input type="hidden" name="hid" value="">
+										<input type="submit" name="update" value="update" id="update" class="btn btn-outline-primary" >
+									<?php }else{ ?>
+										<input type="submit" name="submit" value="submit" id="submit" class="btn btn-outline-primary" >
+									<?php } ?>
 								</div>
 							</div>
 						</form>

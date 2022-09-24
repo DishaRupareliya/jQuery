@@ -24,7 +24,7 @@
 					$sql="SELECT * FROM city";
 					$styleTable='border: 1px black solid; text-align: center;width:100%;';
 					$styleHeader='background-color:#0E0E0F; border:1px black solid;color:white;';
-					echo $DB->getHTML($sql,'','',$styleTable,$styleHeader)
+					echo $DB->getHTML($sql, null,'',$styleTable,$styleHeader, '', 'city')
 				?>
 			</div>
 		</div>

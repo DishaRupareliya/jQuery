@@ -66,7 +66,7 @@
 						<label class="form-label">city</label>
 						<select class="form-control" name="city">
 							<?php foreach ($result as $results): ?>
-								<option value="<?= $results->cid ?>"><?php echo $results->city; ?></option>
+								<option value="<?= $results->id ?>"><?php echo $results->city; ?></option>
 							<?php endforeach ?>
 						</select>
 					</div>

@@ -857,9 +857,9 @@ class DB
         $showCount = true,
         $styleTable = null,
         $styleHeader = null,
-        $styleData = null
+        $styleData = null,
+        $tablename,
     ) {
-
         // Set default style information
         if ($styleTable === null) {
             $tb = "border-collapse:collapse;empty-cells:show";
@@ -896,7 +896,7 @@ class DB
                 foreach (array_keys($records[0]) as $value) {
                     $html .= "\t\t<td style=\"$th\"><strong>" . htmlspecialchars($value) . "</strong></td>\n";
                 }
-                // $html .= "\t\t<td colspan='2' style=\"$th\"><strong>Action</strong</td>\n";
+                 $html .= "\t\t<td colspan='2' style=\"$th\"><strong>Action</strong</td>\n";
                 $html .= "\t</tr>\n";
 
                 // Create the rows with data
@@ -905,9 +905,9 @@ class DB
                     foreach ($row as $value) {
                         $html .= "\t\t<td style=\"$td\">" . htmlspecialchars($value) . "</td>\n";
                     }
-                    // $id= $row['cid'];
-                    // $html .="\t\t<td><a href='insert.php?updateid=$id'>Edit</a></td>";
-                    // $html .="\t\t<td><a href='delete.php?deleteid=$id'>Delete</a></td>";
+                    $id=$row['id'];
+                    $html .="\t\t<td style=\"$td\"><a href='update.php?updateid=$id & table=$tablename'>Edit</a></td>";
+                    $html .="\t\t<td style=\"$td\"><a href='delete.php?deleteid=$id & table=$tablename'>Delete</a></td>";
                     $html .= "\t</tr>\n";
                 }
                 // Close the table
